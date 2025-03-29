@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="celebrationApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Dancing Script', cursive;
+            background-color: #ffe6f0;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .entry-page {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #ff69b4;
+            margin-bottom: 20px;
+        }
+
+        .enter-button a {
+            text-decoration: none;
+            font-size: 1.5em;
+            color: white;
+            background-color: #ff69b4;
+            padding: 15px 30px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s;
+        }
+
+        .enter-button a:hover {
+            background-color: #ff1493;
+        }
+    </style>
+</head>
+<body ng-controller="MainController">
+    <div class="entry-page">
+        <h1>{{ message }}</h1>
+        <div class="enter-button">
+            <a href="bday1.html">Happy Birthday!</a>
+        </div>
+    </div>
+
+    <script>
+        var app = angular.module('celebrationApp', []);
+        app.controller('MainController', function($scope, $http) {
+            $scope.message = "🎉 Welcome to the Celebration! 🎉";
+
+            // Example: Fetch user details from database (Mock API)
+            $http.get('https://jsonplaceholder.typicode.com/users/1')
+                .then(function(response) {
+                    $scope.message = "Welcome, " + response.data.name + "!";
+                }, function(error) {
+                    console.log("Error fetching data", error);
+                });
+        });
+    </script>
+</body>
+</html>
