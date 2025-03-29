@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun & Games</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Dancing Script', cursive;
+            background-color: #ffe6f0;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #ff69b4;
+            margin-top: 20px;
+        }
+
+        .game-section {
+            margin: 30px 0;
+        }
+
+        .game-button {
+            background-color: #ff69b4;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+
+        .game-button:hover {
+            background-color: #ff1493;
+        }
+
+        .quiz {
+            margin: 20px 0;
+            font-size: 1.2em;
+        }
+
+        .quiz-answer {
+            margin-top: 10px;
+            font-size: 1.2em;
+            color: #ff69b4;
+        }
+
+        .navigation {
+            margin-top: 30px;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            font-size: 1.2em;
+            color: white;
+            background-color: #ff69b4;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            margin: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .navigation a:hover {
+            background-color: #ff1493;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fun & Games</h1>
+        
+        <!-- Game 1: Simple Quiz -->
+        <div class="game-section">
+            <h2>🎉 Trivia Quiz</h2>
+            <div class="quiz">
+                <p><strong>What's your bestie's favorite color?</strong></p>
+                <button class="game-button" onclick="showAnswer('pink')">Option 1: Pink</button>
+                <button class="game-button" onclick="showAnswer('blue')">Option 2: Blue</button>
+                <button class="game-button" onclick="showAnswer('green')">Option 3: Green</button>
+                <div id="quizAnswer" class="quiz-answer"></div>
+            </div>
+        </div>
+
+        <!-- Game 2: Fun Spinner -->
+        <div class="game-section">
+            <h2>🎉 Spin the Wheel</h2>
+            <button class="game-button" onclick="spinWheel()">Spin the Wheel!</button>
+            <div id="spinnerResult" class="quiz-answer"></div>
+        </div>
+
+        <!-- Game 3: Memory Match -->
+        <div class="game-section">
+            <h2>🧠 Memory Match</h2>
+            <button class="game-button" onclick="startMemoryGame()">Start Game</button>
+            <div id="memoryResult" class="quiz-answer"></div>
+        </div>
+
+        <!-- Game 4: Rock-Paper-Scissors -->
+        <div class="game-section">
+            <h2>✂️ Rock-Paper-Scissors</h2>
+            <button class="game-button" onclick="playGame('rock')">Rock</button>
+            <button class="game-button" onclick="playGame('paper')">Paper</button>
+            <button class="game-button" onclick="playGame('scissors')">Scissors</button>
+            <div id="rpsResult" class="quiz-answer"></div>
+        </div>
+
+        <div class="navigation">
+            <a href="bday1.html">Back to Home</a>
+            <a href="gallery.html">Photo Gallery</a>
+            <a href="memorylane.html">Memory Lane</a>
+            <a href="playlist.html">Birthday Playlist</a>
+        </div>
+    </div>
+
+    <script>
+        // Simple Quiz Function
+        function showAnswer(answer) {
+            let result = '';
+            if (answer === 'pink') {
+                result = 'Correct! Pink is their favorite color!';
+            } else {
+                result = 'Oops! That\'s not right. Try again!';
+            }
+            document.getElementById('quizAnswer').innerText = result;
+        }
+
+        // Spin the Wheel Function
+        function spinWheel() {
+            const outcomes = ['🎉 You Win!', '🎁 You Get a Prize!', '😎 Better Luck Next Time!', '💖 You\'re a Star!'];
+            const randomOutcome = outcomes[Math.floor(Math.random() * outcomes.length)];
+            document.getElementById('spinnerResult').innerText = randomOutcome;
+        }
+
+        // Memory Match Game
+        function startMemoryGame() {
+            const matches = ['🌟', '🎂', '🎉'];
+            const randomMatch = matches[Math.floor(Math.random() * matches.length)];
+            document.getElementById('memoryResult').innerText = `Match Found: ${randomMatch}`;
+        }
+
+        // Rock-Paper-Scissors Game
+        function playGame(userChoice) {
+            const choices = ['rock', 'paper', 'scissors'];
+            const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+            let result = '';
+
+            if (userChoice === computerChoice) {
+                result = `It\'s a Tie! You both chose ${userChoice}!`;
+            } else if (
+                (userChoice === 'rock' && computerChoice === 'scissors') ||
+                (userChoice === 'paper' && computerChoice === 'rock') ||
+                (userChoice === 'scissors' && computerChoice === 'paper')
+            ) {
+                result = `You Win! ${userChoice} beats ${computerChoice}!`;
+            } else {
+                result = `You Lose! ${computerChoice} beats ${userChoice}!`;
+            }
+
+            document.getElementById('rpsResult').innerText = result;
+        }
+    </script>
+</body>
+</html>

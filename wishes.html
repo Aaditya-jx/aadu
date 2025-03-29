@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave a Wish</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Dancing Script', cursive;
+            background-color: #ffe6f0;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #ff69b4;
+            margin-top: 20px;
+        }
+
+        .wish-section {
+            margin: 30px 0;
+        }
+
+        .wish-form input,
+        .wish-form textarea {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ff69b4;
+        }
+
+        .wish-form button {
+            background-color: #ff69b4;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+
+        .wish-form button:hover {
+            background-color: #ff1493;
+        }
+
+        .wish-list {
+            margin-top: 30px;
+            font-size: 1.2em;
+            color: #ff69b4;
+        }
+
+        .wish-list div {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #ffe0f0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navigation {
+            margin-top: 30px;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            font-size: 1.2em;
+            color: white;
+            background-color: #ff69b4;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            margin: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .navigation a:hover {
+            background-color: #ff1493;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Leave a Birthday Wish!</h1>
+
+        <!-- Wish Form Section -->
+        <div class="wish-section">
+            <h2>🎉 Send Your Birthday Wishes 🎉</h2>
+            <form class="wish-form" id="wishForm">
+                <input type="text" id="name" placeholder="Your Name" required><br>
+                <textarea id="message" rows="5" placeholder="Write your birthday wish here..." required></textarea><br>
+                <button type="submit">Submit Wish</button>
+            </form>
+        </div>
+
+        <!-- Display Wishes -->
+        <div class="wish-list" id="wishList">
+            <h2>💖 Wishes Already Sent 💖</h2>
+            <!-- Dynamic wish messages will be appended here -->
+        </div>
+
+        <div class="navigation">
+            <a href="bday1.html">Back to Home</a>
+            <a href="gallery.html">Photo Gallery</a>
+            <a href="memorylane.html">Memory Lane</a>
+            <a href="games.html">Fun & Games</a>
+            <a href="playlist.html">Birthday Playlist</a>
+        </div>
+    </div>
+
+    <script>
+        // Function to add a new wish to the wish list
+        function addWish(name, message) {
+            const wishList = document.getElementById('wishList');
+            const newWish = document.createElement('div');
+            newWish.innerHTML = `<strong>${name}</strong><p>${message}</p>`;
+            wishList.appendChild(newWish);
+        }
+
+        // Handle form submission
+        document.getElementById('wishForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the form from refreshing the page
+
+            const name = document.getElementById('name').value;
+            const message = document.getElementById('message').value;
+
+            if (name && message) {
+                addWish(name, message); // Add the new wish to the list
+                document.getElementById('name').value = ''; // Clear the input fields
+                document.getElementById('message').value = '';
+            }
+        });
+    </script>
+</body>
+</html>

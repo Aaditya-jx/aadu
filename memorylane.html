@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Lane</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Dancing Script', cursive;
+            background-color: #ffe6f0;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #ff69b4;
+            margin-top: 20px;
+        }
+
+        .memory {
+            font-size: 1.5em;
+            color: #ff69b4;
+            margin: 20px 0;
+        }
+
+        .memories, .videos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .memories img {
+            width: 250px;
+            height: 250px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .memories img:hover {
+            transform: scale(1.1);
+        }
+
+        .videos video {
+            width: 300px;
+            height: 200px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .videos video:hover {
+            transform: scale(1.05);
+        }
+
+        .navigation {
+            margin-top: 30px;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            font-size: 1.2em;
+            color: white;
+            background-color: #ff69b4;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            margin: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .navigation a:hover {
+            background-color: #ff1493;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Memory Lane</h1>
+        <div class="memory">
+            <p>Take a walk down memory lane as we revisit some of the most beautiful moments shared. From laughter-filled days to unforgettable adventures, here are some memories that we'll treasure forever.</p>
+        </div>
+
+        <div class="memories">
+            <img src="AJ1.jpg" alt="Memory 1">
+            <img src="AJ2.jpg" alt="Memory 2">
+            <img src="AJ3.jpg" alt="Memory 3">
+            <img src="AJ4.jpg" alt="Memory 4">
+        </div>
+
+        <h2 style="color: #ff69b4;">Memorable Videos</h2>
+        <div class="videos">
+            <video controls>
+                <source src="AJ5.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <video controls>
+                <source src="AJ6.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <video controls>
+                <source src="AJ7.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="navigation">
+            <a href="bday1.html">Back to Home</a>
+            <a href="gallery.html">Photo Gallery</a>
+            <a href="wishes.html">Leave a Wish</a>
+            <a href="games.html">Fun & Games</a>
+            <a href="playlist.html">Birthday Playlist</a>
+        </div>
+    </div>
+</body>
+</html>
